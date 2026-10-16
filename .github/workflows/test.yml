@@ -10,5 +10,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run tests
-        run: python -m unittest discover -v
+      - name: Install coverage tool
+        run: python -m pip install coverage
+      - name: Run tests with branch coverage
+       run: python -m coverage run --branch -m unittest discover -v && python -m coverage
+       report -m
