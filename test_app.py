@@ -16,6 +16,9 @@ class AppTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_request(-1, 2)
 
+    def test_zero_age_accepted(self):
+        validate_request(0,2)
+
     def test_valid_party(self):
         validate_request(30, 2)
 
